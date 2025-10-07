@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             }else{
                 texto.text="Tienes justo 18 años"
             }
+
+            /*Comentarios*/
         }
 
     }
