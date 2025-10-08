@@ -46,14 +46,12 @@ class MainActivity : AppCompatActivity() {
             val edad = numero.text.toString().toIntOrNull() ?: 0
             val nuevaEdad = edad + 1
             numero.setText(nuevaEdad.toString())
-            actualizarMensaje(nuevaEdad)
         }
 
         botonRestar.setOnClickListener {
             val edad = numero.text.toString().toIntOrNull() ?: 0
             val nuevaEdad = if (edad > 0) edad - 1 else 0
             numero.setText(nuevaEdad.toString())
-            actualizarMensaje(nuevaEdad)
         }
     }
 }
