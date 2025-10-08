@@ -11,7 +11,6 @@ import com.example.mayoredad.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,22 +18,42 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val numero : EditText = findViewById<EditText>(R.id.editTextText)
-        val boton : Button = findViewById<Button>(R.id.button)
-        val texto : TextView = findViewById<TextView>(R.id.textView2)
 
-        boton.setOnClickListener {
-            val numeroResultado = numero.text.toString().toInt()
-            if(numeroResultado<18){
-                texto.text="Eres Menor de Edad"
-            }else if (numeroResultado>18){
-                texto.text="Eres Mayor de Edad"
-            }else{
-                texto.text="Tienes justo 18 años"
+        val numero: EditText = findViewById(R.id.editTextText)
+        val boton: Button = findViewById(R.id.button)
+        val texto: TextView = findViewById(R.id.textView2)
+        val botonSumar: Button = findViewById(R.id.buttonSumar)
+        val botonRestar: Button = findViewById(R.id.buttonRestar)
+
+        fun actualizarMensaje(edad: Int) {
+            when {
+                edad < 18 -> texto.text = "Eres Menor de Edad"
+                edad > 18 -> texto.text = "Eres Mayor de Edad"
+                else -> texto.text = "Tienes justo 18 años"
             }
-
-            /*Comentarios*/
         }
 
+        boton.setOnClickListener {
+            val edad = numero.text.toString().toIntOrNull()
+            if (edad != null) {
+                actualizarMensaje(edad)
+            } else {
+                texto.text = "Introduce un número válido"
+            }
+        }
+
+        botonSumar.setOnClickListener {
+            val edad = numero.text.toString().toIntOrNull() ?: 0
+            val nuevaEdad = edad + 1
+            numero.setText(nuevaEdad.toString())
+            actualizarMensaje(nuevaEdad)
+        }
+
+        botonRestar.setOnClickListener {
+            val edad = numero.text.toString().toIntOrNull() ?: 0
+            val nuevaEdad = if (edad > 0) edad - 1 else 0
+            numero.setText(nuevaEdad.toString())
+            actualizarMensaje(nuevaEdad)
+        }
     }
 }

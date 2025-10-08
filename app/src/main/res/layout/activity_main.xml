@@ -34,7 +34,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="44dp"
         android:text="El resultado aparecerá aquí"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -42,5 +42,23 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/buttonRestar"
+        android:layout_width="146dp"
+        android:layout_height="49dp"
+        android:text="-"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="279dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSumar"
+        android:layout_width="146dp"
+        android:layout_height="49dp"
+        android:text="+"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="281dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
